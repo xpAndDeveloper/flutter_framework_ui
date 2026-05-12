@@ -1,0 +1,43 @@
+schema: spec-driven
+
+context: |
+  # flutter_framework_ui — UI 设计系统层
+
+  ## 模块定位
+  框架的 UI 设计系统，提供统一视觉语言、可复用组件库和主题管理。
+  依赖所有底层模块（base/core/network/storage），被 start 依赖。
+
+  ## 技术栈
+  - 语言: Dart 3.x（严格 null safety）
+  - UI框架: Flutter 3.x + Material Design 3
+  - 图片缓存: cached_network_image ^3.x
+  - 骨架屏: shimmer ^3.x
+  - 测试: golden_toolkit（Golden 截图测试）
+
+  ## 核心职责
+  - 设计 Token：AppColors、AppSpacing、AppTextStyles、AppRadius
+  - 主题系统：AppTheme（亮色/暗色）+ AppColorTokens（ThemeExtension）
+  - 组件库：Button、TextField、Dialog、BottomSheet、Card、AppBar 等
+  - 响应式布局：AppBreakpoints、ResponsiveLayout
+  - 动画工具：AppTransitions、动画预设
+  - 无障碍支持（WCAG 2.1 AA）
+
+  ## 关键约定
+  - 所有组件使用 const 构造函数
+  - 组件从 Theme 读取样式，不硬编码颜色/尺寸
+  - 组件不直接调用 GetIt 或业务逻辑，通过回调解耦
+  - 变体用枚举控制（AppButtonVariant、AppButtonSize）
+  - 所有核心组件必须有 Golden 测试
+
+  ## 代码风格
+  - 组件文件放在 presentation/components/<类别>/ 下
+  - 每个组件独立文件，不合并
+  - 测试覆盖率目标 > 80%，核心组件 100%
+
+rules:
+  proposal:
+    - 新增组件必须说明设计 Token 使用方式
+    - 涉及主题变更必须同时更新亮色和暗色方案
+  tasks:
+    - 每个新组件必须包含 Widget 测试和 Golden 测试任务
+    - 新增 Token 必须同时在 AppTheme 中注册
