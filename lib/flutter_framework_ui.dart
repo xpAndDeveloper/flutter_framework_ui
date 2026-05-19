@@ -52,3 +52,27 @@ export 'src/presentation/components/navigation/app_app_bar.dart';
 // Settings
 export 'src/presentation/components/settings/app_theme_mode_selector.dart';
 export 'src/presentation/components/settings/app_locale_selector.dart';
+
+// Utils
+export 'src/presentation/components/utils/countdown_view.dart';
+export 'src/presentation/components/utils/dashed_line.dart';
+export 'src/presentation/components/utils/keep_alive_wrapper.dart';
+export 'src/presentation/components/utils/marquee_text.dart';
+export 'src/presentation/components/utils/sliver_header_delegate.dart';
+export 'src/presentation/components/utils/swiper_indicators.dart';
+export 'src/presentation/components/utils/cipher_text.dart';
+export 'src/presentation/components/utils/pattern_lock.dart';
+
+// Media
+export 'src/presentation/components/media/app_image.dart';
+export 'src/presentation/components/media/avatar.dart';
+
+// Inputs (additional)
+export 'src/presentation/components/inputs/password_strength_bar.dart';
+export 'src/presentation/components/inputs/num_keyboard.dart';
+export 'src/presentation/components/inputs/app_dropdown.dart';
+export 'src/presentation/components/inputs/app_bottom_sheet_picker.dart';
+
+// State (additional)
+export 'src/presentation/components/state/empty_view.dart';
+export 'src/presentation/components/state/shimmer_box.dart';

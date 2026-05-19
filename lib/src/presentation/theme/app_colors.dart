@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-/// UPay 原始颜色常量（Token JSON 直接映射）。
+/// 原始颜色常量（Token JSON 直接映射）。
 ///
 /// 此类仅存放颜色值，不含语义。语义映射请使用 [AppColorTokens]。
 /// 外部模块可直接引用此类进行颜色复用。
-abstract final class UPayColors {
+abstract final class AppPrimitiveColors {
   // ── Brand ──────────────────────────────────────────────
   static const Color brandPrimary      = Color(0xFF00BD8D);
   static const Color brandPrimaryHover = Color(0xFF33CAA4);
@@ -91,15 +91,15 @@ abstract final class UPayColors {
   static const Color shadowBrandColor   = Color(0xFF00BD8D); // rgba(0,189,141,x)
 }
 
-/// 向后兼容别名（已废弃，请迁移至 UPayColors）。
-@Deprecated('请使用 UPayColors。AppColors 将在下个主版本移除。')
+/// 向后兼容别名（已废弃，请迁移至 AppPrimitiveColors）。
+@Deprecated('请使用 AppPrimitiveColors。AppColors 将在下个主版本移除。')
 abstract final class AppColors {
-  static const primary       = UPayColors.brandPrimary;
-  static const success       = UPayColors.statusSuccess;
-  static const warning       = UPayColors.statusWarning;
-  static const error         = UPayColors.statusError;
-  static const white         = UPayColors.textInverseLight;
+  static const primary       = AppPrimitiveColors.brandPrimary;
+  static const success       = AppPrimitiveColors.statusSuccess;
+  static const warning       = AppPrimitiveColors.statusWarning;
+  static const error         = AppPrimitiveColors.statusError;
+  static const white         = AppPrimitiveColors.textInverseLight;
   static const grey800       = Color(0xFF1F2937);
   // ignore: deprecated_member_use_from_same_package
-  static const info          = UPayColors.statusNeutralLight;
+  static const info          = AppPrimitiveColors.statusNeutralLight;
 }
