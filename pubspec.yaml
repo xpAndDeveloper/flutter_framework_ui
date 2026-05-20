@@ -1,6 +1,7 @@
 name: flutter_framework_ui
-description: "A new Flutter package project."
-version: 0.0.1
+description: "UI design system: components, design tokens, theme, and responsive layout."
+version: 1.0.0
+publish_to: 'none'
 homepage:
 
 environment:
@@ -11,9 +12,13 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_framework_base:
-    path: ../flutter_framework_base
+    git:
+      url: git@kong:xpAndDeveloper/flutter_framework_base.git
+      ref: main
   flutter_framework_core:
-    path: ../flutter_framework_core
+    git:
+      url: git@kong:xpAndDeveloper/flutter_framework_core.git
+      ref: main
   flutter_riverpod: ^2.6.1
   cached_network_image: ^3.4.1
   shimmer: ^3.0.0
