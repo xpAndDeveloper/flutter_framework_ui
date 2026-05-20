@@ -14,11 +14,11 @@ dependencies:
   flutter_framework_base:
     git:
       url: git@kong:xpAndDeveloper/flutter_framework_base.git
-      ref: main
+      ref: v1.0.0
   flutter_framework_core:
     git:
       url: git@kong:xpAndDeveloper/flutter_framework_core.git
-      ref: main
+      ref: v1.0.0
   flutter_riverpod: ^2.6.1
   cached_network_image: ^3.4.1
   shimmer: ^3.0.0
