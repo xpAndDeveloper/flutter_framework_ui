@@ -52,7 +52,7 @@ class _PasswordStrengthBarState extends State<PasswordStrengthBar> {
       _startVerification = true;
       _strength = PasswordStrengthChecker.getStrength(pw);
       _lengthOk = PasswordStrengthChecker.lengthCompliance(pw);
-      _hasUpper = PasswordStrengthChecker.AZCompliance(pw);
+      _hasUpper = PasswordStrengthChecker.azUpperCompliance(pw);
       _hasLower = PasswordStrengthChecker.azCompliance(pw);
       _hasDigit = PasswordStrengthChecker.numCompliance(pw);
     });
