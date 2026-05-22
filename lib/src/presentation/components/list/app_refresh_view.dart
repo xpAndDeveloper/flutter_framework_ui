@@ -376,8 +376,8 @@ class _SliverAppRefreshViewState extends State<SliverAppRefreshView> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiSliver(
-      children: [
+    return SliverMainAxisGroup(
+      slivers: [
         SliverList(
           delegate: SliverChildBuilderDelegate(
             widget.itemBuilder,
@@ -399,115 +399,6 @@ class _SliverAppRefreshViewState extends State<SliverAppRefreshView> {
           ),
       ],
     );
-  }
-}
-
-// ---------------------------------------------------------------------------
-// MultiSliver — 将多个 Sliver 合并为一个 Sliver 输出的内部辅助
-// ---------------------------------------------------------------------------
-
-/// 将多个 Sliver 合并后作为单个 [RenderSliver] 返回，
-/// 使 [SliverAppRefreshView] 可以作为一个 Sliver 放入 [CustomScrollView]。
-class MultiSliver extends MultiChildRenderObjectWidget {
-  const MultiSliver({super.key, required super.children});
-
-  @override
-  RenderObject createRenderObject(BuildContext context) =>
-      _RenderMultiSliver();
-}
-
-class _RenderMultiSliver extends RenderSliver
-    with ContainerRenderObjectMixin<RenderSliver, SliverPhysicalContainerParentData>,
-         RenderSliverHelpers {
-  @override
-  void setupParentData(RenderObject child) {
-    if (child.parentData is! SliverPhysicalContainerParentData) {
-      child.parentData = SliverPhysicalContainerParentData();
-    }
-  }
-
-  @override
-  void performLayout() {
-    var offset = 0.0;
-    var maxPaintExtent = 0.0;
-    var paintExtent = 0.0;
-    final axisDirection = constraints.axisDirection;
-    final growthDirection = constraints.growthDirection;
-
-    RenderSliver? child = firstChild;
-    while (child != null) {
-      child.layout(
-        constraints.copyWith(scrollOffset: (constraints.scrollOffset - offset).clamp(0.0, double.infinity),
-          remainingPaintExtent: (constraints.remainingPaintExtent - paintExtent).clamp(0.0, double.infinity),
-          overlap: 0,
-          crossAxisExtent: constraints.crossAxisExtent,
-        ),
-        parentUsesSize: true,
-      );
-      final childGeometry = child.geometry!;
-      final parentData = child.parentData! as SliverPhysicalContainerParentData;
-
-      switch (applyGrowthDirectionToAxisDirection(axisDirection, growthDirection)) {
-        case AxisDirection.down:
-          parentData.paintOffset = Offset(0, paintExtent);
-        case AxisDirection.up:
-          parentData.paintOffset = Offset(0, -(paintExtent + childGeometry.paintExtent));
-        case AxisDirection.right:
-          parentData.paintOffset = Offset(paintExtent, 0);
-        case AxisDirection.left:
-          parentData.paintOffset = Offset(-(paintExtent + childGeometry.paintExtent), 0);
-      }
-
-      offset += childGeometry.scrollExtent;
-      paintExtent += childGeometry.paintExtent;
-      maxPaintExtent += childGeometry.maxPaintExtent;
-      child = childAfter(child);
-    }
-
-    geometry = SliverGeometry(
-      scrollExtent: offset,
-      paintExtent: paintExtent.clamp(0.0, constraints.remainingPaintExtent),
-      maxPaintExtent: maxPaintExtent,
-      hasVisualOverflow: paintExtent > constraints.remainingPaintExtent,
-    );
-  }
-
-  @override
-  void paint(PaintingContext context, Offset offset) {
-    RenderSliver? child = firstChild;
-    while (child != null) {
-      final parentData = child.parentData! as SliverPhysicalContainerParentData;
-      context.paintChild(child, offset + parentData.paintOffset);
-      child = childAfter(child);
-    }
-  }
-
-  @override
-  bool hitTestChildren(SliverHitTestResult result, {required double mainAxisPosition, required double crossAxisPosition}) {
-    RenderSliver? child = lastChild;
-    while (child != null) {
-      final parentData = child.parentData! as SliverPhysicalContainerParentData;
-      final mainAxisDelta = switch (constraints.axisDirection) {
-        AxisDirection.down || AxisDirection.up => parentData.paintOffset.dy,
-        AxisDirection.left || AxisDirection.right => parentData.paintOffset.dx,
-      };
-      if (child.hitTest(result,
-          mainAxisPosition: mainAxisPosition - mainAxisDelta,
-          crossAxisPosition: crossAxisPosition)) {
-        return true;
-      }
-      child = childBefore(child);
-    }
-    return false;
-  }
-
-  @override
-  double childMainAxisPosition(RenderSliver child) {
-    final parentData = child.parentData! as SliverPhysicalContainerParentData;
-    return switch (constraints.axis) {
-      Axis.vertical => parentData.paintOffset.dy,
-      Axis.horizontal => parentData.paintOffset.dx,
-    };
   }
 }
 
