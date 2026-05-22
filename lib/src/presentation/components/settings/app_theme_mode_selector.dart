@@ -27,7 +27,7 @@ class AppThemeModeSelector extends ConsumerWidget {
       children: AppThemeMode.values.map((mode) {
         final isSelected = current == mode;
         return Padding(
-          padding: const EdgeInsets.only(right: AppSpacing.xs),
+          padding: const EdgeInsets.only(right: AppSpacing.space2),
           child: _ThemeModeChip(
             mode: mode,
             isSelected: isSelected,
@@ -58,17 +58,17 @@ class _ThemeModeChip extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.md,
-          vertical: AppSpacing.xs,
+          horizontal: AppSpacing.space5,
+          vertical: AppSpacing.space2,
         ),
         decoration: BoxDecoration(
           color: isSelected
-              ? AppColors.primary
+              ? AppPrimitiveColors.brandPrimary
               : theme.colorScheme.surfaceContainerHighest,
           borderRadius: AppRadius.md,
           border: Border.all(
             color: isSelected
-                ? AppColors.primary
+                ? AppPrimitiveColors.brandPrimary
                 : theme.colorScheme.outline.withValues(alpha: 0.3),
           ),
         ),
@@ -82,7 +82,7 @@ class _ThemeModeChip extends StatelessWidget {
                   ? Colors.white
                   : theme.colorScheme.onSurface,
             ),
-            const SizedBox(width: AppSpacing.xs),
+            const SizedBox(width: AppSpacing.space2),
             Text(
               _labelFor(mode),
               style: AppTextStyles.labelSm.copyWith(

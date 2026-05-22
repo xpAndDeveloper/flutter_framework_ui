@@ -22,10 +22,10 @@ class AppSnackBar {
     VoidCallback? onAction,
   }) {
     final (bgColor, iconData) = switch (type) {
-      AppSnackBarType.info => (AppColors.info, Icons.info_outline),
-      AppSnackBarType.success => (AppColors.success, Icons.check_circle_outline),
-      AppSnackBarType.warning => (AppColors.warning, Icons.warning_amber_outlined),
-      AppSnackBarType.error => (AppColors.error, Icons.error_outline),
+      AppSnackBarType.info => (AppPrimitiveColors.statusNeutralLight, Icons.info_outline),
+      AppSnackBarType.success => (AppPrimitiveColors.statusSuccess, Icons.check_circle_outline),
+      AppSnackBarType.warning => (AppPrimitiveColors.statusWarning, Icons.warning_amber_outlined),
+      AppSnackBarType.error => (AppPrimitiveColors.statusError, Icons.error_outline),
     };
 
     final messenger = ScaffoldMessenger.of(context);
@@ -41,12 +41,12 @@ class AppSnackBar {
           label: message,
           child: Row(
             children: [
-              Icon(iconData, color: AppColors.white, size: AppSpacing.md + AppSpacing.xs),
-              const SizedBox(width: AppSpacing.sm),
+              Icon(iconData, color: AppPrimitiveColors.textInverseLight, size: AppSpacing.space5 + AppSpacing.space2),
+              const SizedBox(width: AppSpacing.space3),
               Expanded(
                 child: Text(
                   message,
-                  style: AppTextStyles.bodyMd.copyWith(color: AppColors.white),
+                  style: AppTextStyles.body.copyWith(color: AppPrimitiveColors.textInverseLight),
                 ),
               ),
             ],
@@ -55,7 +55,7 @@ class AppSnackBar {
         action: (actionLabel != null && onAction != null)
             ? SnackBarAction(
                 label: actionLabel,
-                textColor: AppColors.white,
+                textColor: AppPrimitiveColors.textInverseLight,
                 onPressed: onAction,
               )
             : null,

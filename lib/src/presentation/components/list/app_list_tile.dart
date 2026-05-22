@@ -42,14 +42,14 @@ class AppListTile extends StatelessWidget {
           opacity: enabled ? 1.0 : 0.5,
           child: Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: AppSpacing.md,
-              vertical: AppSpacing.sm + AppSpacing.xs,
+              horizontal: AppSpacing.space5,
+              vertical: AppSpacing.space3 + AppSpacing.space2,
             ),
             child: Row(
               children: [
                 if (leading != null) ...[
                   leading!,
-                  const SizedBox(width: AppSpacing.md),
+                  const SizedBox(width: AppSpacing.space5),
                 ],
                 Expanded(
                   child: Column(
@@ -58,15 +58,15 @@ class AppListTile extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: AppTextStyles.bodyMd.copyWith(
+                        style: AppTextStyles.body.copyWith(
                           color: theme.colorScheme.onSurface,
                         ),
                       ),
                       if (subtitle != null) ...[
-                        const SizedBox(height: AppSpacing.xs),
+                        const SizedBox(height: AppSpacing.space2),
                         Text(
                           subtitle!,
-                          style: AppTextStyles.bodySm.copyWith(
+                          style: AppTextStyles.subhead.copyWith(
                             color: theme.colorScheme.onSurface.withValues(
                               alpha: 0.6,
                             ),
@@ -77,7 +77,7 @@ class AppListTile extends StatelessWidget {
                   ),
                 ),
                 if (trailing != null) ...[
-                  const SizedBox(width: AppSpacing.sm),
+                  const SizedBox(width: AppSpacing.space3),
                   trailing!,
                 ],
               ],

@@ -70,7 +70,7 @@ class _AppSkeletonState extends State<AppSkeleton>
 
 /// 骨架屏行（多行文字占位）。
 ///
-/// lines 控制行数，lineSpacing 控制行间距（默认 AppSpacing.sm）。
+/// lines 控制行数，lineSpacing 控制行间距（默认 AppSpacing.space3）。
 class AppSkeletonText extends StatelessWidget {
   const AppSkeletonText({
     super.key,
@@ -83,7 +83,7 @@ class AppSkeletonText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spacing = lineSpacing ?? AppSpacing.sm;
+    final spacing = lineSpacing ?? AppSpacing.space3;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -98,14 +98,14 @@ class AppSkeletonText extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: AppSkeleton(
               width: double.infinity,
-              height: AppSpacing.md,
+              height: AppSpacing.space5,
               borderRadius: AppRadius.sm,
             ),
           );
         }
         return AppSkeleton(
           width: double.infinity,
-          height: AppSpacing.md,
+          height: AppSpacing.space5,
           borderRadius: AppRadius.sm,
         );
       }),

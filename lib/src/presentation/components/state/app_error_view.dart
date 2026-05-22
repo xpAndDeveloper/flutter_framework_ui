@@ -29,7 +29,7 @@ class AppErrorView extends StatelessWidget {
       label: message,
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.xl),
+          padding: const EdgeInsets.all(AppSpacing.space8),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -39,24 +39,24 @@ class AppErrorView extends StatelessWidget {
                     size: AppSpacing.xxxl,
                     color: theme.colorScheme.error,
                   ),
-              const SizedBox(height: AppSpacing.md),
+              const SizedBox(height: AppSpacing.space5),
               Text(
                 message,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.bodyMd.copyWith(
+                style: AppTextStyles.body.copyWith(
                   color: theme.colorScheme.onSurface,
                 ),
               ),
               if (onRetry != null) ...[
-                const SizedBox(height: AppSpacing.lg),
+                const SizedBox(height: AppSpacing.space7),
                 AppButton(
                   label: retryLabel,
                   variant: AppButtonVariant.outline,
                   onPressed: onRetry,
                   icon: const Icon(
                     Icons.refresh_rounded,
-                    size: AppSpacing.md,
-                    color: AppColors.primary,
+                    size: AppSpacing.space5,
+                    color: AppPrimitiveColors.brandPrimary,
                   ),
                 ),
               ],

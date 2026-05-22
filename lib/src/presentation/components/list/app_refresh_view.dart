@@ -68,11 +68,6 @@ class AppRefreshController extends ChangeNotifier {
     _loadMoreStatus = status;
     notifyListeners();
   }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 }
 
 // ---------------------------------------------------------------------------
@@ -162,7 +157,6 @@ class _AppRefreshViewState extends State<AppRefreshView> {
   bool _loadingMore = false;
 
   static const double _loadMoreThreshold = 200.0;
-  static const double _footerHeight = 56.0;
 
   @override
   void initState() {
@@ -441,7 +435,7 @@ class _Footer extends StatelessWidget {
           child: Center(
             child: Text(
               noMoreText,
-              style: AppTextStyles.bodyMd.copyWith(color: secondaryColor),
+              style: AppTextStyles.body.copyWith(color: secondaryColor),
             ),
           ),
         ),
@@ -453,7 +447,7 @@ class _Footer extends StatelessWidget {
               children: [
                 Text(
                   failedText,
-                  style: AppTextStyles.bodyMd.copyWith(color: secondaryColor),
+                  style: AppTextStyles.body.copyWith(color: secondaryColor),
                 ),
                 const SizedBox(width: AppSpacing.space3),
                 TextButton(

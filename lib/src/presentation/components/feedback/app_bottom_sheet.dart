@@ -62,10 +62,10 @@ class AppBottomSheet extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (showDragHandle) ...[
-              const SizedBox(height: AppSpacing.sm),
+              const SizedBox(height: AppSpacing.space3),
               Container(
                 width: AppSpacing.xxxl,
-                height: AppSpacing.xs,
+                height: AppSpacing.space2,
                 decoration: BoxDecoration(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.2),
                   borderRadius: AppRadius.full,
@@ -75,20 +75,20 @@ class AppBottomSheet extends StatelessWidget {
             if (title != null) ...[
               Padding(
                 padding: const EdgeInsets.fromLTRB(
-                  AppSpacing.lg,
-                  AppSpacing.md,
-                  AppSpacing.lg,
-                  AppSpacing.sm,
+                  AppSpacing.space7,
+                  AppSpacing.space5,
+                  AppSpacing.space7,
+                  AppSpacing.space3,
                 ),
                 child: Text(
                   title!,
-                  style: AppTextStyles.headingSm.copyWith(
+                  style: AppTextStyles.title1.copyWith(
                     color: theme.colorScheme.onSurface,
                   ),
                 ),
               ),
             ] else ...[
-              const SizedBox(height: AppSpacing.sm),
+              const SizedBox(height: AppSpacing.space3),
             ],
             Flexible(child: child),
             SizedBox(height: MediaQuery.paddingOf(context).bottom),

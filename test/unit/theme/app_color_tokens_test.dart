@@ -30,8 +30,8 @@ void main() {
         expect(AppColorTokens.light.status.success, const Color(0xFF00BD8D));
       });
 
-      test('finance.expense == Color(0xFFDE4B4B)', () {
-        expect(AppColorTokens.light.finance.expense, const Color(0xFFDE4B4B));
+      test('status.error == Color(0xFFDE4B4B)', () {
+        expect(AppColorTokens.light.status.error, const Color(0xFFDE4B4B));
       });
     });
 
@@ -104,15 +104,13 @@ void main() {
       });
     });
 
-    group('deprecated compat fields', () {
-      test('cardBackground == bg.elevated', () {
-        // ignore: deprecated_member_use
-        expect(AppColorTokens.light.cardBackground, AppColorTokens.light.bg.elevated);
+    group('bg / border compat', () {
+      test('bg.elevated matches card background color', () {
+        expect(AppColorTokens.light.bg.elevated, const Color(0xFFFFFFFF));
       });
 
-      test('divider == border.divider', () {
-        // ignore: deprecated_member_use
-        expect(AppColorTokens.light.divider, AppColorTokens.light.border.divider);
+      test('border.divider matches divider color', () {
+        expect(AppColorTokens.light.border.divider, const Color(0xFFEBEEF2));
       });
     });
   });

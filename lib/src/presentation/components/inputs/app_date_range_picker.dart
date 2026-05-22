@@ -46,8 +46,6 @@ class AppDateRange {
   @override
   String toString() =>
       'AppDateRange(${_formatDate(startDate)} ~ ${_formatDate(endDate)})';
-
-  static String _fmt(DateTime d) => _formatDate(d);
 }
 
 // ---------------------------------------------------------------------------
@@ -463,11 +461,6 @@ class _CustomTabState extends State<_CustomTab> {
     final tokens = widget.tokens;
     final brandPrimary =
         tokens?.brand.primary ?? Theme.of(context).colorScheme.primary;
-    final textPrimary =
-        tokens?.text.primary ?? Theme.of(context).colorScheme.onSurface;
-    final textSecondary =
-        tokens?.text.secondary ??
-            Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6);
     final statusError =
         tokens?.status.error ?? Theme.of(context).colorScheme.error;
 

@@ -87,10 +87,10 @@ class _AppToastOverlayState extends State<_AppToastOverlay>
 
   EdgeInsetsGeometry get _padding => switch (widget.position) {
         AppToastPosition.top =>
-          const EdgeInsets.only(top: AppSpacing.xxl + AppSpacing.xl),
+          const EdgeInsets.only(top: AppSpacing.space10 + AppSpacing.space8),
         AppToastPosition.center => EdgeInsets.zero,
         AppToastPosition.bottom =>
-          const EdgeInsets.only(bottom: AppSpacing.xxl + AppSpacing.xl),
+          const EdgeInsets.only(bottom: AppSpacing.space10 + AppSpacing.space8),
       };
 
   @override
@@ -108,21 +108,21 @@ class _AppToastOverlayState extends State<_AppToastOverlay>
                 label: widget.message,
                 child: Container(
                   constraints: BoxConstraints(
-                    maxWidth: MediaQuery.sizeOf(context).width - AppSpacing.xxl,
+                    maxWidth: MediaQuery.sizeOf(context).width - AppSpacing.space10,
                   ),
                   padding: const EdgeInsets.symmetric(
-                    horizontal: AppSpacing.md,
-                    vertical: AppSpacing.sm,
+                    horizontal: AppSpacing.space5,
+                    vertical: AppSpacing.space3,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.grey800.withValues(alpha: 0.9),
-                    borderRadius: AppRadius.xxl,
+                    color: const Color(0xFF1F2937).withValues(alpha: 0.9),
+                    borderRadius: AppRadius.s,
                   ),
                   child: Text(
                     widget.message,
                     textAlign: TextAlign.center,
-                    style: AppTextStyles.bodyMd.copyWith(
-                      color: AppColors.white,
+                    style: AppTextStyles.body.copyWith(
+                      color: AppPrimitiveColors.textInverseLight,
                     ),
                   ),
                 ),

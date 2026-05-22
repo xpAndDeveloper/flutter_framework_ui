@@ -35,7 +35,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
         title: Text(
           title,
-          style: AppTextStyles.headingSm.copyWith(
+          style: AppTextStyles.title1.copyWith(
             color: theme.colorScheme.onSurface,
           ),
         ),

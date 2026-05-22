@@ -47,8 +47,8 @@ class AppLocaleSelector extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currentLocale = ref.watch(appLocaleProvider);
     return Wrap(
-      spacing: AppSpacing.xs,
-      runSpacing: AppSpacing.xs,
+      spacing: AppSpacing.space2,
+      runSpacing: AppSpacing.space2,
       children: supportedLocales.map((locale) {
         final isSelected = currentLocale?.languageCode == locale.languageCode;
         final label = labelBuilder?.call(locale) ?? _defaultLabel(locale);
@@ -92,17 +92,17 @@ class _LocaleChip extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.md,
-          vertical: AppSpacing.xs,
+          horizontal: AppSpacing.space5,
+          vertical: AppSpacing.space2,
         ),
         decoration: BoxDecoration(
           color: isSelected
-              ? AppColors.primary
+              ? AppPrimitiveColors.brandPrimary
               : theme.colorScheme.surfaceContainerHighest,
           borderRadius: AppRadius.md,
           border: Border.all(
             color: isSelected
-                ? AppColors.primary
+                ? AppPrimitiveColors.brandPrimary
                 : theme.colorScheme.outline.withValues(alpha: 0.3),
           ),
         ),

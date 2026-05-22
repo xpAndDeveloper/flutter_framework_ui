@@ -32,7 +32,7 @@ class AppEmptyState extends StatelessWidget {
       label: subtitle != null ? '$title. $subtitle' : title,
       child: Center(
         child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.xl),
+          padding: const EdgeInsets.all(AppSpacing.space8),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -44,30 +44,30 @@ class AppEmptyState extends StatelessWidget {
                   ),
                   child: icon!,
                 ),
-                const SizedBox(height: AppSpacing.md),
+                const SizedBox(height: AppSpacing.space5),
               ],
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: AppTextStyles.headingSm.copyWith(
+                style: AppTextStyles.title1.copyWith(
                   color: theme.colorScheme.onSurface,
                 ),
               ),
               if (subtitle != null) ...[
-                const SizedBox(height: AppSpacing.sm),
+                const SizedBox(height: AppSpacing.space3),
                 Text(
                   subtitle!,
                   textAlign: TextAlign.center,
-                  style: AppTextStyles.bodyMd.copyWith(
+                  style: AppTextStyles.body.copyWith(
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                   ),
                 ),
               ],
               if (action != null) ...[
-                const SizedBox(height: AppSpacing.lg),
+                const SizedBox(height: AppSpacing.space7),
                 action!,
               ] else if (actionLabel != null && onAction != null) ...[
-                const SizedBox(height: AppSpacing.lg),
+                const SizedBox(height: AppSpacing.space7),
                 AppButton(
                   label: actionLabel!,
                   onPressed: onAction,

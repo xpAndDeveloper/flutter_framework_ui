@@ -56,7 +56,7 @@ class AppDialog extends StatelessWidget {
       barrierDismissible: true,
       builder: (ctx) => AppDialog(
         title: title,
-        content: Text(message, style: AppTextStyles.bodyMd),
+        content: Text(message, style: AppTextStyles.body),
         actions: [
           AppButton(
             label: cancelText,
@@ -83,7 +83,7 @@ class AppDialog extends StatelessWidget {
       child: Dialog(
         shape: RoundedRectangleBorder(borderRadius: AppRadius.xl),
         child: Padding(
-          padding: const EdgeInsets.all(AppSpacing.lg),
+          padding: const EdgeInsets.all(AppSpacing.space7),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,26 +91,26 @@ class AppDialog extends StatelessWidget {
               if (title != null) ...[
                 Text(
                   title!,
-                  style: AppTextStyles.headingSm.copyWith(
+                  style: AppTextStyles.title1.copyWith(
                     color: theme.colorScheme.onSurface,
                   ),
                 ),
-                const SizedBox(height: AppSpacing.md),
+                const SizedBox(height: AppSpacing.space5),
               ],
               DefaultTextStyle(
-                style: AppTextStyles.bodyMd.copyWith(
+                style: AppTextStyles.body.copyWith(
                   color: theme.colorScheme.onSurface,
                 ),
                 child: content,
               ),
               if (actions.isNotEmpty) ...[
-                const SizedBox(height: AppSpacing.lg),
+                const SizedBox(height: AppSpacing.space7),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: actions
                       .map(
                         (action) => Padding(
-                          padding: const EdgeInsets.only(left: AppSpacing.sm),
+                          padding: const EdgeInsets.only(left: AppSpacing.space3),
                           child: action,
                         ),
                       )

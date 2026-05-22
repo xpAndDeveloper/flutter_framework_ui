@@ -9,7 +9,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: CountdownView(
-              remainingMs: 3661000, // 1h 1m 1s
+              duration: const Duration(milliseconds: 3661000), // 1h 1m 1s
               style: const TextStyle(),
             ),
           ),
@@ -24,7 +24,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: CountdownView(
-              remainingMs: 90061000, // 1d 1h 1m 1s
+              duration: const Duration(milliseconds: 90061000), // 1d 1h 1m 1s
               style: const TextStyle(),
             ),
           ),
@@ -40,7 +40,7 @@ void main() {
         MaterialApp(
           home: Scaffold(
             body: CountdownView(
-              remainingMs: 1000,
+              duration: const Duration(milliseconds: 1000),
               style: const TextStyle(),
               onFinished: () => finished = true,
             ),

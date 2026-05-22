@@ -10,28 +10,28 @@ class AppSpacingBox extends StatelessWidget {
 
   /// xs 间距（4）
   const AppSpacingBox.xs({super.key})
-      : width = AppSpacing.xs,
-        height = AppSpacing.xs;
+      : width = AppSpacing.space2,
+        height = AppSpacing.space2;
 
   /// sm 间距（8）
   const AppSpacingBox.sm({super.key})
-      : width = AppSpacing.sm,
-        height = AppSpacing.sm;
+      : width = AppSpacing.space3,
+        height = AppSpacing.space3;
 
   /// md 间距（16）
   const AppSpacingBox.md({super.key})
-      : width = AppSpacing.md,
-        height = AppSpacing.md;
+      : width = AppSpacing.space5,
+        height = AppSpacing.space5;
 
   /// lg 间距（24）
   const AppSpacingBox.lg({super.key})
-      : width = AppSpacing.lg,
-        height = AppSpacing.lg;
+      : width = AppSpacing.space7,
+        height = AppSpacing.space7;
 
   /// xl 间距（32）
   const AppSpacingBox.xl({super.key})
-      : width = AppSpacing.xl,
-        height = AppSpacing.xl;
+      : width = AppSpacing.space8,
+        height = AppSpacing.space8;
 
   final double? width;
   final double? height;
