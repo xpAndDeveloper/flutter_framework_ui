@@ -29,14 +29,6 @@ abstract final class AppPrimitiveColors {
   static const Color statusNeutralSoftLight = Color(0xFFF7F8FB);
   static const Color statusNeutralSoftDark  = Color(0xFF1A1A1A);
 
-  // ── Finance ────────────────────────────────────────────
-  static const Color financeIncome  = Color(0xFF00BD8D);
-  static const Color financeExpense = Color(0xFFDE4B4B);
-  static const Color financePending = Color(0xFFFFA600);
-  static const Color financeRefund  = Color(0xFFFFA600);
-  static const Color financeFrozenLight = Color(0xFF858B9C);
-  static const Color financeFrozenDark  = Color(0xFFC5CAD5);
-
   // ── Text (Light) ───────────────────────────────────────
   static const Color textPrimaryLight   = Color(0xFF111A34);
   static const Color textSecondaryLight = Color(0xFF666F83);

@@ -26,10 +26,9 @@ void main() {
 
       test('AppColorTokens extension matches light preset', () {
         final tokens = theme.extension<AppColorTokens>()!;
-        expect(tokens.cardBackground, AppColorTokens.light.cardBackground);
-        expect(tokens.divider, AppColorTokens.light.divider);
-        expect(tokens.inputBorder, AppColorTokens.light.inputBorder);
-        expect(tokens.inputFill, AppColorTokens.light.inputFill);
+        expect(tokens.brand.primary, AppColorTokens.light.brand.primary);
+        expect(tokens.border.divider, AppColorTokens.light.border.divider);
+        expect(tokens.bg.subtle, AppColorTokens.light.bg.subtle);
       });
 
       test('uses Material3', () {
@@ -67,10 +66,9 @@ void main() {
 
       test('AppColorTokens extension matches dark preset', () {
         final tokens = theme.extension<AppColorTokens>()!;
-        expect(tokens.cardBackground, AppColorTokens.dark.cardBackground);
-        expect(tokens.divider, AppColorTokens.dark.divider);
-        expect(tokens.inputBorder, AppColorTokens.dark.inputBorder);
-        expect(tokens.inputFill, AppColorTokens.dark.inputFill);
+        expect(tokens.brand.primary, AppColorTokens.dark.brand.primary);
+        expect(tokens.border.divider, AppColorTokens.dark.border.divider);
+        expect(tokens.bg.subtle, AppColorTokens.dark.bg.subtle);
       });
 
       test('uses Material3', () {
@@ -83,17 +81,17 @@ void main() {
     });
 
     group('text theme integration', () {
-      test('light theme displayLarge has headingXl fontSize', () {
+      test('light theme displayLarge has display fontSize', () {
         final theme = AppTheme.light();
         expect(theme.textTheme.displayLarge?.fontSize, 32);
       });
 
-      test('dark theme displayLarge has headingXl fontSize', () {
+      test('dark theme displayLarge has display fontSize', () {
         final theme = AppTheme.dark();
         expect(theme.textTheme.displayLarge?.fontSize, 32);
       });
 
-      test('light theme bodyMedium has bodyMd fontSize', () {
+      test('light theme bodyMedium has body fontSize', () {
         final theme = AppTheme.light();
         expect(theme.textTheme.bodyMedium?.fontSize, 14);
       });

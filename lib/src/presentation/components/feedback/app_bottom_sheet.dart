@@ -46,7 +46,7 @@ class AppBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final tokens = theme.extension<AppColorTokens>();
-    final bgColor = tokens?.cardBackground ?? theme.colorScheme.surface;
+    final bgColor = tokens?.bg.elevated ?? theme.colorScheme.surface;
 
     return Semantics(
       label: title ?? '底部面板',

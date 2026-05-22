@@ -3,7 +3,7 @@ import '../../theme/app_color_tokens.dart';
 
 /// 标准分割线组件。
 ///
-/// 颜色从 AppColorTokens.divider 读取，不硬编码。
+/// 颜色从 AppColorTokens.border.divider 读取，不硬编码。
 class AppDivider extends StatelessWidget {
   const AppDivider({super.key, this.indent, this.endIndent});
 
@@ -13,7 +13,7 @@ class AppDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tokens = Theme.of(context).extension<AppColorTokens>();
-    final dividerColor = tokens?.divider ?? Theme.of(context).dividerColor;
+    final dividerColor = tokens?.border.divider ?? Theme.of(context).dividerColor;
 
     return Divider(
       color: dividerColor,

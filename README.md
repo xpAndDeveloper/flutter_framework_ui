@@ -2,6 +2,24 @@
 
 Flutter 框架体系的 **UI 设计系统层**。提供统一的设计 Token、可复用组件库、亮色/暗色主题、响应式布局和国际化工具。
 
+## 接入
+
+```yaml
+dependencies:
+  flutter_framework_base:
+    git:
+      url: git@kong:xpAndDeveloper/flutter_framework_base.git
+      ref: v1.0.0
+  flutter_framework_core:
+    git:
+      url: git@kong:xpAndDeveloper/flutter_framework_core.git
+      ref: v1.0.0
+  flutter_framework_ui:
+    git:
+      url: git@kong:xpAndDeveloper/flutter_framework_ui.git
+      ref: v1.0.0
+```
+
 ---
 
 ## 模块定位

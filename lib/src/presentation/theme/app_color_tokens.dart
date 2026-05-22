@@ -84,39 +84,6 @@ class StatusTokens {
 }
 
 @immutable
-class FinanceTokens {
-  const FinanceTokens({
-    required this.income,
-    required this.expense,
-    required this.pending,
-    required this.refund,
-    required this.frozen,
-  });
-
-  final Color income;
-  final Color expense;
-  final Color pending;
-  final Color refund;
-  final Color frozen;
-
-  FinanceTokens copyWith({
-    Color? income, Color? expense, Color? pending, Color? refund, Color? frozen,
-  }) => FinanceTokens(
-    income: income ?? this.income, expense: expense ?? this.expense,
-    pending: pending ?? this.pending, refund: refund ?? this.refund,
-    frozen: frozen ?? this.frozen,
-  );
-
-  FinanceTokens lerp(FinanceTokens other, double t) => FinanceTokens(
-    income:  Color.lerp(income, other.income, t)!,
-    expense: Color.lerp(expense, other.expense, t)!,
-    pending: Color.lerp(pending, other.pending, t)!,
-    refund:  Color.lerp(refund, other.refund, t)!,
-    frozen:  Color.lerp(frozen, other.frozen, t)!,
-  );
-}
-
-@immutable
 class TextTokens {
   const TextTokens({
     required this.title,
@@ -250,7 +217,7 @@ class BorderTokens {
 
 // ─── AppColorTokens ThemeExtension ──────────────────────────
 
-/// UPay 全量语义颜色 Token，通过 ThemeExtension 注入 ThemeData。
+/// 全量语义颜色 Token，通过 ThemeExtension 注入 ThemeData。
 ///
 /// 使用方式：
 /// ```dart
@@ -260,7 +227,6 @@ class BorderTokens {
 /// color: t.text.primary       // 默认主文字（AI 写代码时首选）
 /// color: t.bg.page            // 页面背景
 /// color: t.status.error       // 错误语义色
-/// color: t.finance.income     // 收入金额色
 /// color: t.border.focus       // 聚焦边框
 /// ```
 @immutable
@@ -268,7 +234,6 @@ class AppColorTokens extends ThemeExtension<AppColorTokens> {
   const AppColorTokens({
     required this.brand,
     required this.status,
-    required this.finance,
     required this.text,
     required this.bg,
     required this.border,
@@ -276,7 +241,6 @@ class AppColorTokens extends ThemeExtension<AppColorTokens> {
 
   final BrandTokens brand;
   final StatusTokens status;
-  final FinanceTokens finance;
   final TextTokens text;
   final BgTokens bg;
   final BorderTokens border;
@@ -299,13 +263,6 @@ class AppColorTokens extends ThemeExtension<AppColorTokens> {
       errorSoft:   AppPrimitiveColors.statusErrorSoftLight,
       neutral:     AppPrimitiveColors.statusNeutralLight,
       neutralSoft: AppPrimitiveColors.statusNeutralSoftLight,
-    ),
-    finance: FinanceTokens(
-      income:  AppPrimitiveColors.financeIncome,
-      expense: AppPrimitiveColors.financeExpense,
-      pending: AppPrimitiveColors.financePending,
-      refund:  AppPrimitiveColors.financeRefund,
-      frozen:  AppPrimitiveColors.financeFrozenLight,
     ),
     text: TextTokens(
       title:        AppPrimitiveColors.textPrimaryLight,
@@ -357,13 +314,6 @@ class AppColorTokens extends ThemeExtension<AppColorTokens> {
       neutral:     AppPrimitiveColors.statusNeutralDark,
       neutralSoft: AppPrimitiveColors.statusNeutralSoftDark,
     ),
-    finance: FinanceTokens(
-      income:  AppPrimitiveColors.financeIncome,
-      expense: AppPrimitiveColors.financeExpense,
-      pending: AppPrimitiveColors.financePending,
-      refund:  AppPrimitiveColors.financeRefund,
-      frozen:  AppPrimitiveColors.financeFrozenDark,
-    ),
     text: TextTokens(
       title:        AppPrimitiveColors.textPrimaryDark,
       body:         AppPrimitiveColors.textPrimaryDark,
@@ -397,12 +347,11 @@ class AppColorTokens extends ThemeExtension<AppColorTokens> {
 
   @override
   AppColorTokens copyWith({
-    BrandTokens? brand, StatusTokens? status, FinanceTokens? finance,
+    BrandTokens? brand, StatusTokens? status,
     TextTokens? text, BgTokens? bg, BorderTokens? border,
   }) => AppColorTokens(
     brand:   brand   ?? this.brand,
     status:  status  ?? this.status,
-    finance: finance ?? this.finance,
     text:    text    ?? this.text,
     bg:      bg      ?? this.bg,
     border:  border  ?? this.border,
@@ -414,7 +363,6 @@ class AppColorTokens extends ThemeExtension<AppColorTokens> {
     return AppColorTokens(
       brand:   brand.lerp(other.brand, t),
       status:  status.lerp(other.status, t),
-      finance: finance.lerp(other.finance, t),
       text:    text.lerp(other.text, t),
       bg:      bg.lerp(other.bg, t),
       border:  border.lerp(other.border, t),
