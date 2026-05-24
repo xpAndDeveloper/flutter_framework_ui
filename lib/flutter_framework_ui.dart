@@ -30,6 +30,8 @@ export 'src/presentation/components/buttons/app_button.dart';
 export 'src/presentation/components/layout/app_card.dart';
 export 'src/presentation/components/feedback/app_loading_indicator.dart';
 export 'src/presentation/components/inputs/app_text_field.dart';
+export 'src/presentation/components/inputs/app_validators.dart';
+export 'src/presentation/components/inputs/app_form_field.dart';
 
 // Feedback
 export 'src/presentation/components/feedback/app_dialog.dart';
